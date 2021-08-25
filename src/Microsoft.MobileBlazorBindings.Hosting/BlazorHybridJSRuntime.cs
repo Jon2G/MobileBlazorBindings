@@ -1,6 +1,7 @@
 ﻿// Copyright (c) Microsoft Corporation.
 // Licensed under the MIT license.
 
+using Kit.Sql.Attributes;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 using Microsoft.JSInterop.Infrastructure;
@@ -10,9 +11,11 @@ using System.Threading.Tasks;
 namespace Microsoft.MobileBlazorBindings.Hosting
 {
     // TODO: This used to be internal. Is it OK to be public now?
+    [Preserve]
     public class BlazorHybridJSRuntime : JSRuntime
     {
         private WebViewIPC _ipc;
+
         private static readonly Type VoidTaskResultType = typeof(Task).Assembly
             .GetType("System.Threading.Tasks.VoidTaskResult", true);
 

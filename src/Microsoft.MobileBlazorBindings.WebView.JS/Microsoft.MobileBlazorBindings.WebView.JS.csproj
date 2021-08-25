@@ -44,6 +44,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Include="Info.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="package-lock.json" />
     <Content Include="package.json" />
     <Content Include="tsconfig.json" />
@@ -53,6 +57,16 @@
     <None Include=".gitignore" />
     <None Include="HowToUpdateUpstreamFiles.md" />
     <None Include="webpack.config.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Kit\Kit\Kit.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.3.2" />
+    <PackageReference Update="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" />
+    <PackageReference Update="Nerdbank.GitVersioning" Version="3.4.231" />
   </ItemGroup>
 
   <Target Name="EnsureNpmRestored" Condition="!Exists('node_modules')">

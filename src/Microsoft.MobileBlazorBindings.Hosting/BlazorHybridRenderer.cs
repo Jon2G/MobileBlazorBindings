@@ -1,6 +1,7 @@
 ﻿// Copyright (c) Microsoft Corporation.
 // Licensed under the MIT license.
 
+using Kit.Sql.Attributes;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.RenderTree;
 using Microsoft.AspNetCore.Components.Server.Circuits;
@@ -16,6 +17,7 @@ using System.Threading.Tasks;
 
 namespace Microsoft.MobileBlazorBindings.Hosting
 {
+    [Preserve]
     public class BlazorHybridRenderer : Renderer
     {
         private static readonly Type _writer;
@@ -31,8 +33,8 @@ namespace Microsoft.MobileBlazorBindings.Hosting
         private bool _disposing;
         private long _nextRenderId = 1;
 
-
 #pragma warning disable CA1810 // Initialize reference type static fields inline
+
         static BlazorHybridRenderer()
 #pragma warning restore CA1810 // Initialize reference type static fields inline
         {
@@ -61,7 +63,8 @@ namespace Microsoft.MobileBlazorBindings.Hosting
             CaptureAsyncExceptions(initTask);
         }
 
-        public async Task DispatchEventAsync(WebEventDescriptor eventDescriptor, string eventArgsJson) {
+        public async Task DispatchEventAsync(WebEventDescriptor eventDescriptor, string eventArgsJson)
+        {
             if (eventDescriptor is null)
             {
                 throw new ArgumentNullException(nameof(eventDescriptor));
@@ -171,7 +174,6 @@ namespace Microsoft.MobileBlazorBindings.Hosting
                 HandleException(ex);
             }
         }
-
 
         /// <summary>
         /// Processes a pending batch.

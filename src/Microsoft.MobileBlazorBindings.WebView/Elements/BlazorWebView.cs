@@ -16,10 +16,11 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Forms.Internals;
 using XF = Xamarin.Forms;
 
 [assembly: InternalsVisibleTo("Microsoft.MobileBlazorBindings")]
-
+[assembly:Preserve()]
 namespace Microsoft.MobileBlazorBindings.WebView.Elements
 {
     public class BlazorWebView<TComponent> : XF.ContentView, IDisposable, IWebViewIPCAdapter where TComponent : IComponent

@@ -1,6 +1,7 @@
 ﻿// Copyright (c) Microsoft Corporation.
 // Licensed under the MIT license.
 
+using Kit.Sql.Attributes;
 using Microsoft.AspNetCore.Components.RenderTree;
 using Microsoft.JSInterop;
 using Microsoft.JSInterop.Infrastructure;
@@ -13,6 +14,7 @@ using System.Threading.Tasks;
 
 namespace Microsoft.MobileBlazorBindings.Hosting
 {
+    [Preserve]
     public class WebViewIPC : IDisposable
     {
         private readonly IWebViewIPCAdapter _webViewIPCAdapter;
